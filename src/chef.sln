@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "api", "api\api.csproj", "{6F843FD7-89A1-406C-8C03-C97390607535}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{6F843FD7-89A1-406C-8C03-C97390607535}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "core", "core\core.csproj", "{CCAFD0C0-2DC5-477F-9647-7D2CAFBF69C6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{CCAFD0C0-2DC5-477F-9647-7D2CAFBF69C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{0AC1439D-D4AC-432A-81CD-48F7DEE62184}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{23675731-FB33-429E-8873-52A6A603AB39}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +28,13 @@ Global
 		{CCAFD0C0-2DC5-477F-9647-7D2CAFBF69C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCAFD0C0-2DC5-477F-9647-7D2CAFBF69C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCAFD0C0-2DC5-477F-9647-7D2CAFBF69C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AC1439D-D4AC-432A-81CD-48F7DEE62184}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AC1439D-D4AC-432A-81CD-48F7DEE62184}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AC1439D-D4AC-432A-81CD-48F7DEE62184}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AC1439D-D4AC-432A-81CD-48F7DEE62184}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23675731-FB33-429E-8873-52A6A603AB39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23675731-FB33-429E-8873-52A6A603AB39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23675731-FB33-429E-8873-52A6A603AB39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23675731-FB33-429E-8873-52A6A603AB39}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

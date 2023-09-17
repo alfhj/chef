@@ -6,6 +6,21 @@ public class Ingredient
     public string? Name { get; set; }
     public IngredientUnit Unit { get; set; }
     public IngredientPrice Price { get; set; }
+
+    public string ShortUnit => Unit switch
+    {
+        IngredientUnit.Grams => "g",
+        IngredientUnit.Milliliters => "ml",
+        IngredientUnit.Pieces => "",
+        IngredientUnit.Teaspoons => "tsp",
+        IngredientUnit.Tablespoons => "tbsp",
+        IngredientUnit.Pinches => "pinches",
+        IngredientUnit.Handfuls => "handfuls",
+        IngredientUnit.Cloves => "cloves",
+        IngredientUnit.Slices => "slices",
+        IngredientUnit.Leaves => "leaves",
+        _ => ""
+    };
 }
 
 public enum IngredientUnit

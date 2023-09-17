@@ -1,34 +1,54 @@
 ﻿@inherits LayoutComponentBase
 
-<MudThemeProvider />
+<HeadContent>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+</HeadContent>
+<MudThemeProvider Theme="_myCustomTheme"/>
 <MudDialogProvider />
 <MudSnackbarProvider />
 
+<PageTitle>Chef</PageTitle>
+
 <MudLayout>
-    <MudAppBar Elevation="0">
-        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
-        <MudSpacer />
-        <MudIconButton Icon="@Icons.Custom.Brands.MudBlazor" Color="Color.Inherit" Link="https://mudblazor.com/" Target="_blank" />
-        <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" Link="https://github.com/MudBlazor/MudBlazor/" Target="_blank" />
+    <MudAppBar Color="Color.Primary" Fixed="false" Style="height: 5rem">
+        <MudText Class="logo">Chef</MudText>
     </MudAppBar>
-    <MudDrawer @bind-Open="_drawerOpen" Elevation="1">
-        <MudDrawerHeader>
-            <MudText Typo="Typo.h6">Web</MudText>
-        </MudDrawerHeader>
-        <NavMenu />
+    <MudDrawer Fixed="false" Elevation="1" Variant="@DrawerVariant.Mini" OpenMiniOnHover="false">
+        <MudNavMenu>
+            <NavItem Title="Home" Href="" Icon="@Icons.Material.Filled.Home"></NavItem>
+            <NavItem Title="Recipes" Href="" Icon="@Icons.Material.Filled.LibraryBooks"></NavItem>
+            <NavItem Title="Ingredients" Href="counter" Icon="@Icons.Custom.Uncategorized.FoodApple"></NavItem>
+            <NavItem Title="Profile" Href="fetchdata" Icon="@Icons.Material.Filled.Person"></NavItem>
+        </MudNavMenu>
     </MudDrawer>
-    <MudMainContent>
-        <MudContainer MaxWidth="MaxWidth.Large" Class="my-16 pt-16">
+    <MudMainContent >
+        <MudContainer MaxWidth="MaxWidth.Medium" Class="">
             @Body
         </MudContainer>
     </MudMainContent>
 </MudLayout>
 
-@code {
-    bool _drawerOpen = true;
-
-    void DrawerToggle()
-    {
-        _drawerOpen = !_drawerOpen;
+<style>
+    .logo {
+        font-family: Lobster;
+        font-size: 4rem;
+        padding-left: 4rem;
     }
+</style>
+
+@code {
+
+    readonly MudTheme _myCustomTheme = new MudTheme()
+        {
+            Typography = new Typography()
+            {
+                H1 = new H1()
+                {
+                    FontFamily = new[] { "Lobster" },
+                    FontSize = "4rem",
+                }
+            }
+        };
 }

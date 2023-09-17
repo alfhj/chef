@@ -1,0 +1,76 @@
+﻿@page "/recipes/{name}"
+@using Core.Entities
+
+<MudImage Src="@GetImagePath()" Width="400" Height="200" ObjectFit="ObjectFit.Cover" Elevation="25" Class="rounded-lg mb-8" />
+<h1>@CurrentRecipe.Name</h1>
+
+<MudText class="mt-8"><strong>Ingredients:</strong></MudText>
+<MudPaper>
+    <MudList>
+        @foreach (var ingredient in CurrentRecipe.Ingredients)
+        {
+            <MudListItem Text="@ingredient.ToString()"/>
+        }
+    </MudList>
+</MudPaper>
+
+<MudText class="mt-8"><strong>Steps</strong></MudText>
+<MudPaper>
+    <MudList>
+        @for (var i = 0; i < CurrentRecipe.Steps.Count; i++)
+        {
+            <MudListItem Text="@($"{i+1}. {CurrentRecipe.Steps[i].Description}")" />
+        }
+    </MudList>
+</MudPaper>
+
+@code {
+    [Parameter]
+    public string? Name { get; set; }
+
+    public string? GetImagePath() => string.IsNullOrEmpty(Name) ? null : $"images/{Name.ToLower().Replace(' ', '-')}.jpg";
+
+    public Recipe CurrentRecipe => Name switch
+    {
+        _ => new Recipe
+        {
+            Name = "Chicken Korma",
+            Description = "Want a curry without too many calories? Use fat-free Greek yogurt instead of cream for a healthy chicken korma that will give your local takeaway a run for its money",
+            URL = "https://www.bbcgoodfood.com/recipes/chicken-korma",
+            Ingredients = new List<RecipeIngredient>
+            {
+                new()
+                {
+                    Ingredient = new Ingredient()
+                    {
+                        Name = "Chicken breast", Unit = IngredientUnit.Pieces
+                    },
+                    Amount = 1
+                },
+                new()
+                {
+                    Ingredient = new Ingredient()
+                    {
+                        Name = "Chicken korma sauce", Unit = IngredientUnit.Milliliters
+                    },
+                    Amount = 200
+                },
+                new()
+                {
+                    Ingredient = new Ingredient()
+                    {
+                        Name = "Rice", Unit = IngredientUnit.Grams
+                    },
+                    Amount = 100
+                }
+            },
+            Steps = new List<RecipeStep>
+            {
+                new() {Description = "Cook rice" },
+                new() { Description = "Fry chicken breast" },
+                new() { Description = "Add sauce" },
+                new() { Description = "Serve chicken korma over rice" }
+            }
+        }
+    };
+}

@@ -20,7 +20,10 @@ public class RecipeIngredient
 {
     public int Id { get; set; }
     public Ingredient? Ingredient { get; set; }
-    public float Amount { get; set; }
+    public decimal Amount { get; set; }
+
+    public override string ToString()
+        => $"{Amount} {Ingredient.ShortUnit} {Ingredient.Name}";
 }
 
 public class RecipeStep
